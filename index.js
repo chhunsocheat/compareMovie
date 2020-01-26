@@ -44,6 +44,15 @@ createAutoComplete({
     },
    
 })
+createAutoComplete({
+  ...autocompleteConfig,
+  root:document.querySelector('#left-autocomplete'),
+  onOptionSelect(movie){
+      document.querySelector('.tutorial').classList.add('is-hidden')
+      onMovieSelect(movie,document.querySelector('.left-summary'),'left')
+  },
+ 
+})
 
 let leftMovie;
 let rightMovie;
