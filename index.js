@@ -44,15 +44,7 @@ createAutoComplete({
     },
    
 })
-createAutoComplete({
-  ...autocompleteConfig,
-  root:document.querySelector('#left-autocomplete'),
-  onOptionSelect(movie){
-      document.querySelector('.tutorial').classList.add('is-hidden')
-      onMovieSelect(movie,document.querySelector('.left-summary'),'left')
-  },
- 
-})
+
 
 let leftMovie;
 let rightMovie;
@@ -65,6 +57,9 @@ const res = await axios.get('http://www.omdbapi.com/', {
       i:movie.imdbID
     }
   });
+
+
+  
   target.innerHTML=movieTemplate(res.data);
 
   if(side==='left'){
@@ -110,18 +105,6 @@ const runComparison=()=>{
 
 
 const movieTemplate = movieDetail => {
-    // const dollars = parseInt(movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, ''));
-    //   const metascore=parseInt(movieDetail.Metascore);
-    //   const imdbRating=parseFloat(movieDetail.imdbRating)
-    //   const imdbVotes=parseInt(movieDetail.imdbVotes).replace(/,/g,'')
-    // const awards=movieDetail.Awards.split(' ').reduce((acc,word)=>{
-    //     const value=parseInt(word)
-    //     if(isNaN(value)){
-    //         return acc;
-    //     }else{
-    //        return acc+value;
-    //     }
-    // },0);
 
     const dollars = parseInt(
         movieDetail.BoxOffice.replace(/\$/g, '').replace(/,/g, '')
